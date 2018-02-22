@@ -1,23 +1,28 @@
 pipeline {
-    agent {
-        docker {
-            image 'maven:3-alpine' 
-            args '-v /root/.m2:/root/.m2' 
-        }
-    }
+    agent any
     stages {
         stage('Build') { 
             steps {
-                sh 'mvn -B -DskipTests clean package' 
+                def buildJobs = load "./parsejobs.groovy" 
+                def jobNameRepos = buildJobs.getJobNameReposMap()
+
+                //println "${jobNameRepos.keySet()}"
+                //println "${jobNameRepos.values()}"
+                for (item in jobNameRepos) {
+                    println "Job name = "+item.key
+                    println "Job repo = "+item.value 
+                }
             }
         }
         stage('Test') {
             steps {
-                sh 'mvn test'
+                println "Test stage steps"
+                //sh 'mvn test'
             }
             post {
                 always {
-                    junit 'target/surefire-reports/*.xml'
+                    println "Test stage post always"
+                    //junit 'target/surefire-reports/*.xml'
                 }
             }
         }

@@ -1,0 +1,39 @@
+{
+  "jobs": [
+    {      
+        "id":"analyticsinternal",
+        "name": "build-maven-analyticsinternal-git",
+        "repos": [
+          {
+            "id":"analyticsinternal",
+            "location":"git@bitbucket.org:jobvite/analyticsinternal.git"
+          }
+        ]
+      
+    },
+    {      
+        "id":"api",
+        "name": "build-maven-api-git",
+        "repos": [
+          {
+            "id":"api",
+            "location":"git@bitbucket.org:jobvite/api.git"
+          }
+        ]      
+    },
+    {
+        "id": "test",
+        "name":"testjob",
+        "repos": [
+          {
+            "id":"testid1",
+            "location":"testloc1"
+          },
+          {
+            "id":"testid2",
+            "location":"testloc2"
+          }
+        ]      
+    }
+  ]
+}
