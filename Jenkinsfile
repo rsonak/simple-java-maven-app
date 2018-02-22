@@ -1,5 +1,5 @@
 node {  
-    def buildJobs = load "parsejobs.groovy" 
+    def buildJobs = load "/Users/rohit.sonak/Documents/GitHub/simple-java-maven-app/parsejobs.groovy" 
     def jobNameRepos = buildJobs.getJobNameReposMap()
 
     println "${jobNameRepos.keySet()}"
