@@ -12,6 +12,5 @@ def getJobNameReposMap() {
     }
     return itemDataMap  
 }
-
-
 println "end parser" 
+return this
