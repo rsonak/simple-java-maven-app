@@ -2,7 +2,6 @@ pipeline {
     agent any
     stages {
         stage('Build') { 
-            steps {
                 def buildJobs = load "./parsejobs.groovy" 
                 def jobNameRepos = buildJobs.getJobNameReposMap()
 
@@ -12,16 +11,18 @@ pipeline {
                     println "Job name = "+item.key
                     println "Job repo = "+item.value 
                 }
+            steps {
+                echo "Steps"
             }
         }
         stage('Test') {
             steps {
-                println "Test stage steps"
+                echo "Test stage steps"
                 //sh 'mvn test'
             }
             post {
                 always {
-                    println "Test stage post always"
+                    echo "Test stage post always"
                     //junit 'target/surefire-reports/*.xml'
                 }
             }
