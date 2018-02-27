@@ -1,5 +1,6 @@
 node {  
-    def buildJobs = load 'parsejobs.groovy' 
+    def buildJobs
+    buildJobs = load 'parsejobs.groovy' 
     def jobNameRepos = buildJobs.getJobNameReposMap()
 
     println "${jobNameRepos.keySet()}"
