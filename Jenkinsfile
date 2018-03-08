@@ -1,17 +1,12 @@
 node {  
     checkout scm
-    def jobNameRepos = getJobRepos()
+    def buildJobs = load 'parsejobs.groovy' 
+    def jobNameRepos = buildJobs.getJobNameReposMap() 
     echo "${jobNameRepos.keySet()}"
     echo "${jobNameRepos.values()}"
     for (item in jobNameRepos) {
         echo "Job name = "+item.key            
         echo "Job repo = "+item.value 
-    }
-
-    def getJobRepos() {
-        def buildJobs = load 'parsejobs.groovy' 
-        def jobRepos = buildJobs.getJobNameReposMap() 
-        return jobRepos
     }
 
     stage('Build') { 
