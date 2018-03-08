@@ -20,6 +20,6 @@ def parseFile() {
 	def jsonSlurper = new JsonSlurper()
 	def jsonFile = readFile("./buildjobs.json")
 	println "end parsing file"
-	return return new HashMap<>(jsonSlurper.parseText(jsonFile))
+	return new HashMap<>(jsonSlurper.parseText(jsonFile))
 }
 return this
