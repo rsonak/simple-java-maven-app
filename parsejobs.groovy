@@ -14,11 +14,12 @@ def getJobNameReposMap() {
     return itemDataMap  
 }
 
+@NonCPS
 def parseFile() {
 	println "start parsing file"
 	def jsonSlurper = new JsonSlurper()
 	def jsonFile = readFile("./buildjobs.json")
 	println "end parsing file"
-	return jsonSlurper.parseText(jsonFile)
+	return return new HashMap<>(jsonSlurper.parseText(jsonFile))
 }
 return this
