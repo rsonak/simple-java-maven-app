@@ -3,6 +3,7 @@ import groovy.json.*
 def getJobNameReposMap() {
 	println "start parser" 
     def data = parseFile()
+    println("Data = "+data)
     def itemDataMap = [:]
     data.jobs.each { 
     	def jobName = it["name"]
