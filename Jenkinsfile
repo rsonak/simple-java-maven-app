@@ -1,14 +1,15 @@
 node {  
-    def buildJobs
-    buildJobs = load 'parsejobs.groovy' 
-    def jobNameRepos = buildJobs.getJobNameReposMap()
+    //def buildJobs
+    //buildJobs = load 'parsejobs.groovy' 
+    //def jobNameRepos = buildJobs.getJobNameReposMap()
 
-    println "${jobNameRepos.keySet()}"
-    println "${jobNameRepos.values()}"
-    for (item in jobNameRepos) {
-        println "Job name = "+item.key
-        println "Job repo = "+item.value 
-    }
+    //println "${jobNameRepos.keySet()}"
+    //println "${jobNameRepos.values()}"
+    //for (item in jobNameRepos) {
+      //  println "Job name = "+item.key
+      //  println "Job repo = "+item.value 
+    //}
+    println("Start::")
     stage('Build') { 
         echo "Build step"
     }
@@ -18,4 +19,5 @@ node {
     stage('Deploy') { 
         echo "deploy step"
     }
+    println("END::")
 }
