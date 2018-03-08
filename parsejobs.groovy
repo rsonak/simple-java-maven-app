@@ -18,7 +18,7 @@ def parseFile() {
 	def jsonSlurper = new JsonSlurper()
 	def jsonFile = readFile("./buildjobs.json")
 	println "end parsing file"
-	return jsonSlurper.parseText(jsonFile.text)
+	return jsonSlurper.parseText(jsonFile)
 }
 println "end parser" 
 return this
