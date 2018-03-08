@@ -10,16 +10,15 @@ node {
     }
 
     stage('Build') { 
-        echo "Build step"
+        echo 'Build step'
     }
 
     stage('Test') { 
-        echo "test step"
-
+        echo 'test step'
     }
 
     stage('Deploy') { 
-        echo "deploy step"
+        echo 'deploy step'
     }
 
 }
