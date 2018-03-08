@@ -19,7 +19,11 @@ def parseFile() {
 	println "start parsing file"
 	def jsonSlurper = new JsonSlurper()
 	def jsonFile = readFile("./buildjobs.json")
-	println "end parsing file"
-	return new HashMap<>(jsonSlurper.parseText(jsonFile))
+	def object = jsonSlurper.parseText(jsonFile)
+	if(object instanceof groovy.json.internal.LazyMap) {
+      return new HashMap<>(object)
+  	}
+  	println "end parsing file"
+	return object
 }
 return this
