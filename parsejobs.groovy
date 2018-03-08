@@ -5,7 +5,7 @@ def getJobNameReposMap() {
     def jsonSlurper = new JsonSlurper()
     //def data = jsonSlurper.parseText(new File("buildjobs.json").text)
     def jsonFile = readFile("./buildjobs.json")
-    def data = jsonSlurper.parseText(jsonFile)
+    def data = jsonSlurper.parseText(jsonFile.text)
     def itemDataMap = [:]
     data.jobs.each { 
     	def jobName = it["name"]
