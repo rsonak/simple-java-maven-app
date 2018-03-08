@@ -16,7 +16,7 @@ def getJobNameReposMap() {
 
 def parseFile() {
 	println "start parsing file"
-	def jsonSlurper = new JsonSlurper()
+	def jsonSlurper = new JsonSlurperClassic()
 	def jsonFile = readFile("./buildjobs.json")
 	def object = jsonSlurper.parseText(jsonFile)
   	println "end parsing file"
