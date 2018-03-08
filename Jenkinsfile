@@ -13,12 +13,6 @@ node {
         echo 'Build step'
     }
 
-    stage('Test') { 
-        echo 'test step'
-    }
-
-    stage('Deploy') { 
-        echo 'deploy step'
-    }
+    
 
 }
