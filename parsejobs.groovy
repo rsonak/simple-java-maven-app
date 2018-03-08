@@ -5,10 +5,12 @@ def getJobNameReposMap() {
     def data = parseFile()
     println("data = "+data)
     def itemDataMap = [:]
-    data.jobs.each { 
-    	def jobName = it["name"]
-    	//def jobRepos = it["repos"].location
-    	def jobRepos = it["repos"]
+    data.each { 
+    	def jobName = it["jobs"]["name"]
+    	println("jobName = "+jobName)
+    	//def jobRepos = it["jobs"]["repos"].location
+    	def jobRepos = it["jobs"]["repos"]
+    	println("jobRepos = "+jobRepos)
     	itemDataMap.put(jobName,jobRepos)
     }
     println "end parser" 
