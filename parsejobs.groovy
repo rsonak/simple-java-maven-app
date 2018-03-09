@@ -8,7 +8,7 @@ def getJobNameReposMap() {
     data.jobs.each { 
     	def jobName = it["name"]
     	//def jobRepos = it["jobs"]["repos"].location
-    	def jobRepos = it["repos"].location
+    	def jobRepos = it["repos"]
     	itemDataMap.put(jobName,jobRepos)
     }
     println "end parser" 
