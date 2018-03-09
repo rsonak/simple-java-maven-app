@@ -5,25 +5,21 @@ def getJobNameReposMap() {
     def data = parseFile()
     println("data = "+data)
     def itemDataMap = [:]
-    data.each { 
-    	def jobName = it["jobs"]["name"]
-    	println("jobName = "+jobName)
+    data.jobs.each { 
+    	def jobName = it["name"]
     	//def jobRepos = it["jobs"]["repos"].location
-    	def jobRepos = it["jobs"]["repos"]
-    	println("jobRepos = "+jobRepos)
+    	def jobRepos = it["repos"]
     	itemDataMap.put(jobName,jobRepos)
     }
     println "end parser" 
     return itemDataMap  
 }
 
-@NonCPS
 def parseFile() {
 	println "start parsing file"
 	def jsonSlurper = new JsonSlurper()
 	def jsonFile = readFile("./buildjobs.json")
-	def object = jsonSlurper.parseText(jsonFile).text
-  	println "end parsing file"
-	return object
+	println "end parsing file"
+	return jsonSlurper.parseText(jsonFile)
 }
 return this
