@@ -31,7 +31,7 @@ def printJobDetails(def jobNameRepos) {
     	def jobRepos = it["repos"]
     	println "jobRepos = "+jobRepos
     	for (int i = 0; i < jobRepos.size(); i++) {
-    		def jsonObj = jobRepos.getJSONObject(i);
+    		def jsonObj = jobRepos.get(i);
     		def location = jsonObj.getString("location");
     		println "location = "+location
     	}   	
