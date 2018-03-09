@@ -6,7 +6,6 @@ def getJobNameReposMap() {
 }
 
 def parseFile() {
-	println "start parsing file"
 	def jsonFile = readJSON file:'buildjobs.json'	
   	return jsonFile
 }
