@@ -1,9 +1,7 @@
 import groovy.json.*
 
 def getJobNameReposMap() {
-	println "start parser" 
     def data = parseFile()
-    println "end parser" 
     return data 
 }
 
