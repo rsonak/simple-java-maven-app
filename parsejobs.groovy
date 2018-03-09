@@ -5,24 +5,17 @@ def getJobNameReposMap() {
     def data = parseFile()
     println("data = "+data)    
     println "end parser" 
-    return jobs(data)  
+    return data
 }
 
-def jobs(list) {
-    list
-        .grep { it.value == true  }
-        .collect { [ name : it.key.toString(),
-                      repos : it.value.toString() ] }
 
-}
-
-@NonCPS
 def parseFile() {
 	println "start parsing file"
-	def jsonSlurper = new JsonSlurper()
-	def jsonFile = readFile("./buildjobs.json")
+	//def jsonSlurper = new JsonSlurper()
+	def jsonFile = readJSON file:'buildjobs.json'
+	//def jsonFile = readFile("./buildjobs.json")
 	println "end parsing file"
-	return new HashMap<>(jsonSlurper.parseText(jsonFile))
+	return jsonFile
 }
 
 def printJobDetails(def jobNameRepos) {
