@@ -16,6 +16,7 @@ def jobs(list) {
 
 }
 
+@NonCPS
 def parseFile() {
 	println "start parsing file"
 	def jsonSlurper = new JsonSlurper()
