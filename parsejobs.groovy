@@ -23,9 +23,13 @@ def parseFile() {
 def printJobDetails(def jobNameRepos) {
 	//echo "${jobNameRepos.keySet()}"
     //echo "${jobNameRepos.values()}"
-    for (item in jobNameRepos) {
-        echo "Job name = "+item.key            
-        echo "Job repo = "+item.value 
-    }
+    //for (item in jobNameRepos) {
+       // echo "Job name = "+item.key            
+        //echo "Job repo = "+item.value 
+   // }
+   jobNameRepos.each {
+   	echo "Job name = "+it.key   
+   	echo "Job repo = "+it.value   
+   }
 }
 return this
