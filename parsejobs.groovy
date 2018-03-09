@@ -8,7 +8,6 @@ def getJobNameReposMap() {
     return jobs(data)  
 }
 
-@NonCPS
 def jobs(list) {
     list
         .grep { it.value == true  }
@@ -17,13 +16,12 @@ def jobs(list) {
 
 }
 
-@NonCPS
 def parseFile() {
 	println "start parsing file"
-	def jsonSlurper = new JsonSlurperClassic()
+	def jsonSlurper = new JsonSlurper()
 	def jsonFile = readFile("./buildjobs.json")
 	println "end parsing file"
-	return jsonSlurper.parseText(jsonFile)
+	return new HashMap<>(jsonSlurper.parseText(jsonFile))
 }
 
 def printJobDetails(def jobNameRepos) {
