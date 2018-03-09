@@ -27,8 +27,15 @@ def printJobDetails(def jobNameRepos) {
        // echo "Job name = "+item.key            
         //echo "Job repo = "+item.value 
    // }
-   for (e in jobNameRepos ) {
-   	println "e = "+e
-   }
+   //for (e in jobNameRepos ) {
+   	//println "e = "+e
+   //}
+   jobNameRepos.jobs.each { 
+    	def jobName = it["name"]
+    	println "jobName = "+jobName
+    	//def jobRepos = it["jobs"]["repos"].location
+    	def jobRepos = it["repos"]
+    	println "jobRepos = "+jobRepos
+    }
 }
 return this
