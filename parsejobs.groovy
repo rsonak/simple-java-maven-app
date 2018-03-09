@@ -29,7 +29,12 @@ def printJobDetails(def jobNameRepos) {
     	println "jobName = "+jobName
     	//def jobRepos = it["jobs"]["repos"].location
     	def jobRepos = it["repos"]
-    	println "jobRepos = "+jobRepos    	
+    	println "jobRepos = "+jobRepos
+    	for (int i = 0; i < jobRepos.length(); i++) {
+    		JSONObject jsonObj = jobRepos.getJSONObject(i);
+    		def location = jsonObj.getString("location");
+    		println "location = "+location
+    	}   	
     }
 }
 return this
