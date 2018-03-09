@@ -28,7 +28,7 @@ def printJobDetails(def jobNameRepos) {
         //echo "Job repo = "+item.value 
    // }
    for (e in jobNameRepos ) {
-    println "key = ${e.key}, value = ${e.value}"
+   	println "e = "+e
    }
 }
 return this
