@@ -8,16 +8,10 @@ def getJobNameReposMap() {
     return data 
 }
 
-@NonCPS
 def parseFile() {
 	println "start parsing file"
-	def jsonFile = readFile("./buildjobs.json")
-	println "end parsing file"
-	def object = new JsonSlurper().parseText(json)
-	if(object instanceof groovy.json.internal.LazyMap) {
-	      return new HashMap<>(object)
-	}
-  	return object
+	def jsonFile = readJSON file:'buildjobs.json'	
+  	return jsonFile
 }
 
 def printJobDetails(def jobNameRepos) {
@@ -30,7 +24,7 @@ def printJobDetails(def jobNameRepos) {
    //for (e in jobNameRepos ) {
    	//println "e = "+e
    //}
-   jobNameRepos."jobs".each { 
+   jobNameRepos.jobs.each { 
     	def jobName = it["name"]
     	println "jobName = "+jobName
     	//def jobRepos = it["jobs"]["repos"].location
