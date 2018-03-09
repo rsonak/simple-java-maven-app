@@ -28,7 +28,8 @@ def printJobDetails(def jobNameRepos) {
     	def jobName = it["name"]
     	println "jobName = "+jobName
     	//def jobRepos = it["jobs"]["repos"].location
-    	def jobRepos = it["repos"]    	
+    	def jobRepos = it["repos"]
+    	println "jobRepos = "+jobRepos    	
     }
 }
 return this
