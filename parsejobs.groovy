@@ -27,9 +27,8 @@ def printJobDetails(def jobNameRepos) {
        // echo "Job name = "+item.key            
         //echo "Job repo = "+item.value 
    // }
-   jobNameRepos.each {
-   	echo "Job name = "+it.key   
-   	echo "Job repo = "+it.value   
+   for (e in jobNameRepos ) {
+    println "key = ${e.key}, value = ${e.value}"
    }
 }
 return this
