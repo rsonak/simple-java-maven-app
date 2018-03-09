@@ -3,21 +3,24 @@ import groovy.json.*
 def getJobNameReposMap() {
 	println "start parser" 
     def data = parseFile()
-    println("data = "+data)
-    def itemDataMap = [:]
-    data.jobs.each { 
-    	def jobName = it["name"]
-    	//def jobRepos = it["jobs"]["repos"].location
-    	def jobRepos = it["repos"]
-    	itemDataMap.put(jobName,jobRepos)
-    }
+    println("data = "+data)    
     println "end parser" 
-    return itemDataMap  
+    return jobs(data)  
 }
 
+@NonCPS
+def jobs(list) {
+    list
+        .grep { it.value == true  }
+        .collect { [ name : it.key.toString(),
+                      repos : it.value.toString() ] }
+
+}
+
+@NonCPS
 def parseFile() {
 	println "start parsing file"
-	def jsonSlurper = new JsonSlurper()
+	def jsonSlurper = new JsonSlurperClassic()
 	def jsonFile = readFile("./buildjobs.json")
 	println "end parsing file"
 	return jsonSlurper.parseText(jsonFile)
